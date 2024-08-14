@@ -3,6 +3,7 @@ finance/uc_project/model/chefs/photo.class
 finance/uc_project/model/chefs/motDuChef.class
 finance/uc_project/repository/chefs/attributionRepository.class
 finance/uc_project/service/CustomUserDetailsService.class
+finance/uc_project/repository/PtaRepository.class
 finance/uc_project/controller/AuthController.class
 finance/uc_project/controller/Chefs/UcPhotoController.class
 finance/uc_project/service/chefs/motDuChefService.class
@@ -12,6 +13,7 @@ finance/uc_project/enums/TypeDeChef.class
 finance/uc_project/service/UserService.class
 finance/uc_project/VisualisationDeDonneesApplication.class
 finance/uc_project/controller/Chefs/creationChefController.class
+finance/uc_project/service/PtaService.class
 finance/uc_project/model/AuthenticationResponse.class
 finance/uc_project/enums/AccountState.class
 finance/uc_project/service/chefs/creationChefService.class
@@ -20,12 +22,14 @@ finance/uc_project/service/CourrierService.class
 finance/uc_project/enums/AccountStatus.class
 finance/uc_project/model/chefs/infoBase.class
 finance/uc_project/model/Courrier.class
+finance/uc_project/enums/TypeDePta.class
 finance/uc_project/controller/CourrierController.class
 finance/uc_project/util/JwtUtil.class
 finance/uc_project/repository/chefs/motDuChefRepository.class
 finance/uc_project/repository/UserRepository.class
 finance/uc_project/repository/chefs/photoRepository.class
 finance/uc_project/service/chefs/attributionService.class
+finance/uc_project/controller/PtaController.class
 finance/uc_project/VisualisationDeDonneesApplication$1.class
 finance/uc_project/model/User_account.class
 finance/uc_project/config/SecurityConfig.class
@@ -35,4 +39,5 @@ finance/uc_project/controller/Chefs/motDuChefController.class
 finance/uc_project/repository/chefs/infoBaseRepository.class
 finance/uc_project/model/chefs/attribution.class
 finance/uc_project/controller/User_accountController.class
+finance/uc_project/model/Pta.class
 finance/uc_project/enums/AccountType.class
