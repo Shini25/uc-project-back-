@@ -6,6 +6,8 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import finance.uc_project.enums.TypeDeChef;
+import finance.uc_project.model.reunion.Participant;
+import finance.uc_project.model.reunion.ResponsableReunion;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -51,6 +53,15 @@ public class infoBase {
     @OneToMany(mappedBy = "chef")
     @JsonIgnore
     private List<motDuChef> motDuChefs;
+
+    @OneToMany(mappedBy = "chef")
+    @JsonIgnore
+    private List<ResponsableReunion> responsablesReunion;
+
+    @OneToMany(mappedBy = "chef")
+    @JsonIgnore
+    private List<Participant> participants;
+
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -139,6 +150,22 @@ public class infoBase {
 
     public void setMotDuChefs(List<motDuChef> motDuChefs) {
         this.motDuChefs = motDuChefs;
+    }
+
+    public List<ResponsableReunion> getResponsablesReunion() {
+        return responsablesReunion;
+    }
+
+    public void setResponsablesReunion(List<ResponsableReunion> responsablesReunion) {
+        this.responsablesReunion = responsablesReunion;
+    }
+
+    public List<Participant> getParticipants() {
+        return participants;
+    }
+
+    public void setParticipants(List<Participant> participants) {
+        this.participants = participants;
     }
 
     public LocalDateTime getCreatedAt() {

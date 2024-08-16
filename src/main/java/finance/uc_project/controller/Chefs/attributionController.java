@@ -25,7 +25,6 @@ public class attributionController {
     @Autowired
     private attributionService chefAttributionService;
 
-    // CRUD pour ChefAttribution
     @GetMapping("/{chefId}/attributions")
     public ResponseEntity<List<String>> getAttributionsByChef(@PathVariable String chefId) {
         return ResponseEntity.ok(chefAttributionService.getAttributionsByChef(chefId));
