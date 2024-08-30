@@ -49,17 +49,17 @@ public class PtaController {
         public ResponseEntity<Pta> createPtaPersonalise(
                 @RequestPart("titre") String titre,
                 @RequestPart("contenue") String base64Contenue,
-                @RequestPart("typeDePta") String typeDePta) {
+                @RequestPart("typeDePta") String typeDePta,
+                @RequestPart("typeDeContenue") String typeDeContenue ) {
             try {
 
                 String base64pdf = base64Contenue.split(",")[1];
                 byte[] pdfBytes = Base64.getDecoder().decode(base64pdf);
-                Pta createdPta = ptaService.createPtaPersonalise(titre, pdfBytes, typeDePta);
+                Pta createdPta = ptaService.createPtaPersonalise(titre, pdfBytes, typeDeContenue, typeDePta);
                 return ResponseEntity.ok(createdPta);
             } catch (IllegalArgumentException e) {
             return ResponseEntity.status(400).body(null);
         }
-
     }
 
     @PutMapping("/{id}")

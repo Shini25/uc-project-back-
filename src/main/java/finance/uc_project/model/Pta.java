@@ -31,9 +31,11 @@ public class Pta {
     @Column(name = "typeDePta", nullable = true)
     private TypeDePta typeDePta;
 
-
     @Column(name = "contenue")
     private byte[] contenue;
+
+    @Column(name= "typeDeContenue")
+    private String typeDeContenue;
 
     @PrePersist
     protected void onCreate() {
@@ -79,5 +81,13 @@ public class Pta {
 
     public void setContenue(byte[] contenue) {
         this.contenue = contenue;
+    }
+
+    public String getTypeDeContenue() {
+        return typeDeContenue;
+    }
+
+    public void setTypeDeContenue(String typeDeContenue) {
+        this.typeDeContenue = typeDeContenue;
     }
 }

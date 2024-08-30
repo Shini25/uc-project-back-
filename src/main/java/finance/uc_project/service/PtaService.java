@@ -29,13 +29,14 @@ public class PtaService {
         return ptaRepository.save(pta);
     }
 
-    public Pta createPtaPersonalise(String titre, byte[] contenue, String typeDePta) {
+    public Pta createPtaPersonalise(String titre, byte[] contenue, String typeDeContenue , String typeDePta) {
 
         Pta pta = new Pta();
         pta.setTitre(titre);
         pta.setContenue(contenue);
         pta.setTypeDePta(TypeDePta.valueOf(typeDePta));
         pta.setDatePta(LocalDateTime.now());
+        pta.setTypeDeContenue(typeDeContenue);
         return ptaRepository.save(pta);
     }
 
