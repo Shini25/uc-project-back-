@@ -15,6 +15,10 @@ public class Pta extends Courrier {
     @Column(name = "type", nullable = false)
     private PtaType type;
 
+    @Column(name = "valide")
+    private boolean valide;
+
+
     // Getters and Setters
     public PtaType getType() {
         return type;
@@ -23,4 +27,14 @@ public class Pta extends Courrier {
     public void setType(PtaType type) {
         this.type = type;
     }
+
+    public boolean isValide() {
+        return valide;
+    }
+
+    public void setValide(boolean valide) {
+        this.valide = valide;
+    }
+
+
 }

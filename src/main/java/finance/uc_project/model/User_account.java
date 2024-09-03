@@ -1,12 +1,18 @@
 package finance.uc_project.model;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import finance.uc_project.enums.AccountState;
 import finance.uc_project.enums.AccountStatus;
 import finance.uc_project.enums.AccountType;
+import finance.uc_project.model.courriers.Courrier;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class User_account {
@@ -28,8 +34,11 @@ public class User_account {
     @Enumerated(EnumType.STRING)
     private AccountState accountState;
 
-    // Constructors, getters, and setters
+    @OneToMany(mappedBy = "user_account")
+    @JsonIgnore
+    private List<Courrier> courriers;
 
+    // getters, and setters
     public User_account() {
     }
 
@@ -44,7 +53,6 @@ public class User_account {
     }
 
     // Getters and setters
-
     public String getMatricule() {
         return matricule;
     }
@@ -100,4 +108,13 @@ public class User_account {
     public void setAccountState(AccountState accountState) {
         this.accountState = accountState;
     }
+
+    public List<Courrier> getCourriers() {
+        return courriers;
+    }
+
+    public void setCourriers(List<Courrier> courriers) {
+        this.courriers = courriers;
+    }
+
 }

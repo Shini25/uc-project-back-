@@ -2,16 +2,19 @@ package finance.uc_project.model.courriers;
 
 import java.time.LocalDateTime;
 
+import finance.uc_project.model.User_account;
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 
-@MappedSuperclass
+@Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Courrier {
 
@@ -31,6 +34,13 @@ public abstract class Courrier {
 
     @Column(name = "type_contenue")
     private String typeContenue;
+
+    @Column(name = "type_document")
+    private String typeDocument;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User_account user_account; 
 
     @PrePersist
     protected void onCreate() {
@@ -77,4 +87,21 @@ public abstract class Courrier {
     public void setTypeContenue(String typeContenue) {
         this.typeContenue = typeContenue;
     }
+
+    public User_account getUser_account() {
+        return user_account;
+    }
+
+    public void setUserId(User_account user_account) {
+        this.user_account = user_account;
+    }
+
+    public String getTypeDocument() {
+        return typeDocument;
+    }
+
+    public void setTypeDocument(String typeDocument) {
+        this.typeDocument = typeDocument;
+    }
 }
+

@@ -62,7 +62,6 @@ public class infoBase {
     @JsonIgnore
     private List<Participant> participants;
 
-
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 

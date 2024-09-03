@@ -46,12 +46,13 @@ public class AutreDocumentController {
                 @RequestPart("titre") String titre,
                 @RequestPart("contenue") String base64Contenue,
                 @RequestPart("typeDeLivret") String typeDeLivret,
-                @RequestPart("typeDeContenue") String typeDeContenue ) {
+                @RequestPart("typeDeContenue") String typeDeContenue,
+                @RequestPart("userId") String userId ) {
             try {
 
                 String Base64Contenue = base64Contenue.split(",")[1];
                 byte[] contenueBytes = Base64.getDecoder().decode(Base64Contenue);
-                AutreDocument createAutreDocument = autreDocumentService.createAutreDocumentPersonalise(titre, contenueBytes, typeDeContenue, typeDeLivret);
+                AutreDocument createAutreDocument = autreDocumentService.createAutreDocumentPersonalise(titre, contenueBytes, typeDeContenue, typeDeLivret, userId);
                 return ResponseEntity.ok(createAutreDocument);
             } catch (IllegalArgumentException e) {
             return ResponseEntity.status(400).body(null);
