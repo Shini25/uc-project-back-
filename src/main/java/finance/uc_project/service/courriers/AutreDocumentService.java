@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import finance.uc_project.enums.courrier.AutreDocumentType;
-import finance.uc_project.enums.courrier.TypeDocument;
 import finance.uc_project.model.courriers.AutreDocument;
 import finance.uc_project.repository.courriers.AutreDocumentRepository;
 
@@ -33,9 +32,8 @@ public class AutreDocumentService {
         autreDocument.setTitre(titre);
         autreDocument.setContenue(contenue);
         autreDocument.setType(AutreDocumentType.valueOf(autreDocumentType));
-        autreDocument.setDateCourrier(LocalDateTime.now());
+        autreDocument.setDateInsertion(LocalDateTime.now());
         autreDocument.setTypeContenue(typeDeContenue);
-        autreDocument.setTypeDocument(TypeDocument.LIVRET); 
         return autreDocumentRepository.save(autreDocument);
     }
 }

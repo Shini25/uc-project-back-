@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import finance.uc_project.enums.courrier.ActiviteType;
-import finance.uc_project.enums.courrier.TypeDocument;
 import finance.uc_project.model.courriers.Activite;
 import finance.uc_project.repository.courriers.ActiviteRepository;
 
@@ -26,9 +25,8 @@ public class ActiviteService {
         activite.setTitre(titre);
         activite.setContenue(contenue);
         activite.setType(ActiviteType.valueOf(activiteType));
-        activite.setDateCourrier(LocalDateTime.now());
+        activite.setDateInsertion(LocalDateTime.now());
         activite.setTypeContenue(typeDeContenue);
-        activite.setTypeDocument(TypeDocument.LIVRET); 
         return activiteRepository.save(activite);
     }
 }

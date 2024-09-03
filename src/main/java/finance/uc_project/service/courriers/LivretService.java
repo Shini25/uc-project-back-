@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import finance.uc_project.enums.courrier.LivretType;
-import finance.uc_project.enums.courrier.TypeDocument;
 import finance.uc_project.model.courriers.Livret;
 import finance.uc_project.repository.courriers.LivretRepository;
 
@@ -44,9 +43,8 @@ public class LivretService {
         livret.setTitre(titre);
         livret.setContenue(contenue);
         livret.setType(LivretType.valueOf(livretType));
-        livret.setDateCourrier(LocalDateTime.now());
+        livret.setDateInsertion(LocalDateTime.now());
         livret.setTypeContenue(typeDeContenue);
-        livret.setTypeDocument(TypeDocument.LIVRET); 
         return livretRepository.save(livret);
     }
 }

@@ -2,56 +2,48 @@ package finance.uc_project.model.courriers;
 
 import java.time.LocalDateTime;
 
-import finance.uc_project.enums.courrier.TypeDocument;
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.PrePersist;
-import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "courrier")
+@MappedSuperclass
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Courrier {
+public abstract class Courrier {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_courrier", updatable = false, nullable = false)
+    private Long idCourrier;
 
     @Column(name = "titre", nullable = false)
     private String titre;
 
     @Column(name = "date_insertion", nullable = false, updatable = false)
-    private LocalDateTime dateCourrier;
+    private LocalDateTime dateInsertion;
 
     @Column(name = "contenue")
     private byte[] contenue;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "type_document", nullable = false)
-    private TypeDocument typeDocument;
 
     @Column(name = "type_contenue")
     private String typeContenue;
 
     @PrePersist
     protected void onCreate() {
-        dateCourrier = LocalDateTime.now();
+        dateInsertion = LocalDateTime.now();
     }
 
     // Getters and Setters
-    public Long getId() {
-        return id;
+    public Long getIdCourrier() {
+        return idCourrier;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdCourrier(Long idCourrier) {
+        this.idCourrier = idCourrier;
     }
 
     public String getTitre() {
@@ -62,12 +54,12 @@ public class Courrier {
         this.titre = titre;
     }
 
-    public LocalDateTime getDateCourrier() {
-        return dateCourrier;
+    public LocalDateTime getDateInsertion() {
+        return dateInsertion;
     }
 
-    public void setDateCourrier(LocalDateTime dateCourrier) {
-        this.dateCourrier = dateCourrier;
+    public void setDateInsertion(LocalDateTime dateInsertion) {
+        this.dateInsertion = dateInsertion;
     }
 
     public byte[] getContenue() {
@@ -76,14 +68,6 @@ public class Courrier {
 
     public void setContenue(byte[] contenue) {
         this.contenue = contenue;
-    }
-
-    public TypeDocument getTypeDocument() {
-        return typeDocument;
-    }
-
-    public void setTypeDocument(TypeDocument typeDocument) {
-        this.typeDocument = typeDocument;
     }
 
     public String getTypeContenue() {

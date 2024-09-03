@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import finance.uc_project.enums.courrier.PtaType;
-import finance.uc_project.enums.courrier.TypeDocument;
 import finance.uc_project.model.courriers.Pta;
 import finance.uc_project.repository.courriers.PtaRepository;
-
 
 @Service
 public class PtaService {
@@ -22,9 +20,8 @@ public class PtaService {
         pta.setTitre(titre);
         pta.setContenue(contenue);
         pta.setType(PtaType.valueOf(ptaType));
-        pta.setDateCourrier(LocalDateTime.now());
+        pta.setDateInsertion(LocalDateTime.now());
         pta.setTypeContenue(typeDeContenue);
-        pta.setTypeDocument(TypeDocument.LIVRET); 
         return ptaRepository.save(pta);
     }
 }
