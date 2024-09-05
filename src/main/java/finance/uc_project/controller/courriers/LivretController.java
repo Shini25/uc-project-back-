@@ -23,15 +23,14 @@ public class LivretController {
         public ResponseEntity<Livret> createLivretPersonalise(
                 @RequestPart("titre") String titre,
                 @RequestPart("contenue") String base64Contenue,
-                @RequestPart("typeDeLivret") String typeDeLivret,
+                @RequestPart("type") String type,
                 @RequestPart("typeDeContenue") String typeDeContenue,
-                @RequestPart("userId") String userId,
-                @RequestPart("typeDocument") String typeDocument ) {
+                @RequestPart("userId") String userId) {
             try {
 
                 String Base64Contenue = base64Contenue.split(",")[1];
                 byte[] contenueBytes = Base64.getDecoder().decode(Base64Contenue);
-                Livret createLivret = livretService.createLivretPersonalise(titre, contenueBytes, typeDeContenue, typeDeLivret, userId, typeDocument);
+                Livret createLivret = livretService.createLivretPersonalise(titre, contenueBytes, typeDeContenue, type, userId);
                 return ResponseEntity.ok(createLivret);
             } catch (IllegalArgumentException e) {
             return ResponseEntity.status(400).body(null);

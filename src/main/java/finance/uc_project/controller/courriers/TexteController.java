@@ -41,18 +41,17 @@ public class TexteController {
         public ResponseEntity<Texte> createTextePersonalise(
                 @RequestPart("titre") String titre,
                 @RequestPart("contenue") String base64Contenue,
-                @RequestPart("typeDeTexte") String typeDeTexte,
+                @RequestPart("type") String type,
                 @RequestPart("typeDeContenue") String typeDeContenue,
                 @RequestPart("userId") String userId ) {
             try {
 
                 String Base64Contenue = base64Contenue.split(",")[1];
                 byte[] contenueBytes = Base64.getDecoder().decode(Base64Contenue);
-                Texte createTexte = texteService.createTextePersonalise(titre, contenueBytes, typeDeContenue, typeDeTexte, userId);
+                Texte createTexte = texteService.createTextePersonalise(titre, contenueBytes, typeDeContenue, type, userId);
                 return ResponseEntity.ok(createTexte);
             } catch (IllegalArgumentException e) {
             return ResponseEntity.status(400).body(null);
         }
     }
-
 }

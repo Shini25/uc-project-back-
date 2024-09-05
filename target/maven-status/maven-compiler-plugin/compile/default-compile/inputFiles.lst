@@ -12,14 +12,17 @@
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/enums/courrier/ActiviteType.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/service/reunion/ReunionService.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/service/reunion/ResponsableReunionService.java
+/home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/controller/courriers/AccesReserveController.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/VisualisationDeDonneesApplication.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/controller/reunion/ParticipantController.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/repository/courriers/ActiviteRepository.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/controller/courriers/LivretController.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/service/chefs/attributionService.java
+/home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/model/courriers/AccesReserve.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/repository/chefs/photoRepository.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/enums/courrier/PtaType.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/controller/Chefs/attributionController.java
+/home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/repository/courriers/AccesReserveRepository.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/controller/courriers/AutreDocumentController.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/enums/courrier/TextesType.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/service/chefs/creationChefService.java
@@ -39,6 +42,7 @@
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/repository/courriers/PtaRepository.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/enums/courrier/LivretType.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/model/courriers/Activite.java
+/home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/enums/courrier/TypeDocument.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/enums/AccountStatus.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/model/reunion/InfoReunionBase.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/model/chefs/attribution.java
@@ -60,6 +64,7 @@
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/enums/TypeDeChef.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/repository/reunion/InfoReunionBaseRepository.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/controller/User_accountController.java
+/home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/enums/courrier/AccesReserveType.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/service/CustomUserDetailsService.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/service/reunion/OrdreDuJourService.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/enums/AccountState.java
@@ -68,6 +73,7 @@
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/model/chefs/infoBase.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/repository/chefs/attributionRepository.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/repository/reunion/OrdreDuJourRepository.java
+/home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/service/courriers/AccesReserveService.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/service/courriers/ActiviteService.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/controller/reunion/ResponsableReunionController.java
 /home/leopard/Documents/F_M_C_L/STAGE/uc_projet/uc_projet_back/src/main/java/finance/uc_project/service/courriers/LivretService.java

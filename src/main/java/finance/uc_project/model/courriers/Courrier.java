@@ -2,6 +2,7 @@ package finance.uc_project.model.courriers;
 
 import java.time.LocalDateTime;
 
+import finance.uc_project.enums.courrier.TypeDocument;
 import finance.uc_project.model.User_account;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,7 +37,7 @@ public abstract class Courrier {
     private String typeContenue;
 
     @Column(name = "type_document")
-    private String typeDocument;
+    private TypeDocument typeDocument;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -96,11 +97,11 @@ public abstract class Courrier {
         this.user_account = user_account;
     }
 
-    public String getTypeDocument() {
+    public TypeDocument getTypeDocument() {
         return typeDocument;
     }
 
-    public void setTypeDocument(String typeDocument) {
+    public void setTypeDocument(TypeDocument typeDocument) {
         this.typeDocument = typeDocument;
     }
 }

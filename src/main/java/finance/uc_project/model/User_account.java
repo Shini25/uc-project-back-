@@ -18,7 +18,7 @@ import jakarta.persistence.OneToMany;
 public class User_account {
 
     @Id
-    private String matricule;
+    private String numero;
 
     private String password;
 
@@ -42,8 +42,8 @@ public class User_account {
     public User_account() {
     }
 
-    public User_account(String matricule, String password, AccountStatus accountStatus, AccountType accountType, String verificationCode, String email, AccountState accountState) {
-        this.matricule = matricule;
+    public User_account(String numero, String password, AccountStatus accountStatus, AccountType accountType, String verificationCode, String email, AccountState accountState) {
+        this.numero = numero;
         this.password = password;
         this.accountStatus = accountStatus;
         this.accountType = accountType;
@@ -53,12 +53,12 @@ public class User_account {
     }
 
     // Getters and setters
-    public String getMatricule() {
-        return matricule;
+    public String getNumero() {
+        return numero;
     }
 
-    public void setMatricule(String matricule) {
-        this.matricule = matricule;
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
     public String getPassword() {

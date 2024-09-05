@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import finance.uc_project.enums.courrier.TextesType;
+import finance.uc_project.enums.courrier.TypeDocument;
 import finance.uc_project.model.User_account;
 import finance.uc_project.model.courriers.Texte;
 import finance.uc_project.repository.UserRepository;
 import finance.uc_project.repository.courriers.TexteRepository;
-
 @Service
 public class TexteService {
 
@@ -27,6 +27,7 @@ public class TexteService {
         texte.setType(TextesType.valueOf(texteType));
         texte.setDateInsertion(LocalDateTime.now());
         texte.setTypeContenue(typeDeContenue);
+        texte.setTypeDocument(TypeDocument.TEXTE);
         User_account user = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("Invalid user id: " + userId));
         texte.setUserId(user);
         return texteRepository.save(texte);

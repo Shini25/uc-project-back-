@@ -36,16 +36,16 @@ public class User_accountController {
         return ResponseEntity.ok(users);
     }
 
-    @GetMapping("/{matricule}")
-    public ResponseEntity<User_account> getUserByMatricule(@PathVariable String matricule) {
-        Optional<User_account> user = userService.getUserByMatricule(matricule);
+    @GetMapping("/{numero}")
+    public ResponseEntity<User_account> getUserByNumero(@PathVariable String numero) {
+        Optional<User_account> user = userService.getUserByNumero(numero);
         return user.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/check-matricule")
-    public ResponseEntity<Boolean> checkMatriculeExists(@RequestParam String matricule) {
-        boolean exists = userService.matriculeExists(matricule);
+    @GetMapping("/check-numero")
+    public ResponseEntity<Boolean> checkNumeroExists(@RequestParam String numero) {
+        boolean exists = userService.numeroExists(numero);
         return ResponseEntity.ok(exists);
     }
 
@@ -55,22 +55,22 @@ public class User_accountController {
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{matricule}")
-    public ResponseEntity<User_account> updateUser(@PathVariable String matricule, @RequestBody User_account user) {
-        if (!userService.getUserByMatricule(matricule).isPresent()) {
+    @PutMapping("/{numero}")
+    public ResponseEntity<User_account> updateUser(@PathVariable String numero, @RequestBody User_account user) {
+        if (!userService.getUserByNumero(numero).isPresent()) {
             return ResponseEntity.notFound().build();
         }
-        user.setMatricule(matricule); // Ensure the matricule is set correctly
+        user.setNumero(numero); // Ensure the numero is set correctly
         User_account updatedUser = userService.saveUser(user);
         return ResponseEntity.ok(updatedUser);
     }
 
-    @DeleteMapping("/{matricule}")
-    public ResponseEntity<Void> deleteUser(@PathVariable String matricule) {
-        if (!userService.getUserByMatricule(matricule).isPresent()) {
+    @DeleteMapping("/{numero}")
+    public ResponseEntity<Void> deleteUser(@PathVariable String numero) {
+        if (!userService.getUserByNumero(numero).isPresent()) {
             return ResponseEntity.notFound().build();
         }
-        userService.deleteUser(matricule);
+        userService.deleteUser(numero);
         return ResponseEntity.noContent().build();
     }
 }

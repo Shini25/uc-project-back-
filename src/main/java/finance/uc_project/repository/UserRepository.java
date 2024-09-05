@@ -9,6 +9,6 @@ import finance.uc_project.model.User_account;
 
 @Repository
 public interface UserRepository extends JpaRepository<User_account, String> {
-    Optional<User_account> findByMatricule(String matricule);
+    Optional<User_account> findByNumero(String numero);
     
 }

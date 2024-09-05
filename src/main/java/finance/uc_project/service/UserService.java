@@ -29,8 +29,8 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public Optional<User_account> getUserByMatricule(String matricule) {
-        return userRepository.findById(matricule);
+    public Optional<User_account> getUserByNumero(String numero) {
+        return userRepository.findById(numero);
     }
 
     public User_account saveUser(User_account user) {
@@ -38,11 +38,11 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public boolean matriculeExists(String matricule) {
-        return userRepository.findByMatricule(matricule).isPresent();
+    public boolean numeroExists(String numero) {
+        return userRepository.findByNumero(numero).isPresent();
     }
 
-    public void deleteUser(String matricule) {
-        userRepository.deleteById(matricule);
+    public void deleteUser(String numero) {
+        userRepository.deleteById(numero);
     }
 }
