@@ -1,9 +1,13 @@
 package finance.uc_project.controller.courriers;
 
 import java.util.Base64;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -19,23 +23,6 @@ public class PtaController {
     @Autowired
     private PtaService ptaService;
 
-    // @GetMapping
-    // public ResponseEntity<List<Pta>> getAllPtas() {
-    //     List<Pta> livrets = ptaService.getAllPtas();
-    //     return ResponseEntity.ok(livrets);
-    // }
-
-    // @GetMapping("/{id}")
-    // public ResponseEntity<Pta> getPtaById(@PathVariable Long id) {
-    //     Optional<Pta> livret = ptaService.getPtaById(id);
-    //     return livret.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    // }
-
-    // @PostMapping("/insertion")
-    // public ResponseEntity<Pta> createPta(@RequestBody Pta livret) {
-    //     Pta createdPta = ptaService.createPta(livret);
-    //     return new ResponseEntity<>(createdPta, HttpStatus.CREATED);
-    // }
 
     @PostMapping("/insertion/personalise")
         public ResponseEntity<Pta> createPtaPersonalise(
@@ -53,6 +40,18 @@ public class PtaController {
             } catch (IllegalArgumentException e) {
             return ResponseEntity.status(400).body(null);
         }
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Pta> getPtaById(@PathVariable Long id) {
+        Optional<Pta> pta = ptaService.getPtaById(id);
+        return pta.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Pta>> getAllPta() {
+        List<Pta> ptas = ptaService.getAllPta();
+        return ResponseEntity.ok(ptas);
     }
 
 }

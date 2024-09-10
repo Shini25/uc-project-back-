@@ -1,6 +1,8 @@
 package finance.uc_project.service.courriers;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +22,15 @@ public class TexteService {
     @Autowired
     private UserRepository userRepository;
 
-       public Texte  createTextePersonalise(String titre, byte[] contenue, String typeDeContenue, String texteType, String userId) {
+    public List<Texte> getAllTextes() {
+        return texteRepository.findAll();
+    }
+
+    public Optional<Texte> getTexteById(Long id) {
+        return texteRepository.findById(id);
+    }
+
+    public Texte  createTextePersonalise(String titre, byte[] contenue, String typeDeContenue, String texteType, String userId) {
         Texte texte = new Texte();
         texte.setTitre(titre);
         texte.setContenue(contenue);

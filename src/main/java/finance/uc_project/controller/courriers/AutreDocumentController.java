@@ -23,7 +23,7 @@ public class AutreDocumentController {
     @Autowired
     private AutreDocumentService autreDocumentService;
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<AutreDocument>> getAllAutreDocuments() {
         List<AutreDocument> autreDocuments = autreDocumentService.getAllAutreDocuments();
         return ResponseEntity.ok(autreDocuments);

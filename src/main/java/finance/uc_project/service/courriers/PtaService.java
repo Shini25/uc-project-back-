@@ -1,6 +1,8 @@
 package finance.uc_project.service.courriers;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +13,6 @@ import finance.uc_project.model.User_account;
 import finance.uc_project.model.courriers.Pta;
 import finance.uc_project.repository.UserRepository;
 import finance.uc_project.repository.courriers.PtaRepository;
-
 
 @Service
 public class PtaService {
@@ -35,5 +36,24 @@ public class PtaService {
         return ptaRepository.save(pta);
     }
 
+    //get all
+    public List<Pta> getAllPta() {
+        return ptaRepository.findAll();
+    }
 
+    public Optional<Pta> getPtaById(Long id) {
+        return ptaRepository.findById(id);
+    }
+
+    public Pta createPta(Pta pta) {
+        return ptaRepository.save(pta);
+    }
+    
+    public Pta updatePta(Pta pta) {
+        return ptaRepository.save(pta);
+    }
+
+    public void deletePta(Long id) {
+        ptaRepository.deleteById(id);
+    }
 }

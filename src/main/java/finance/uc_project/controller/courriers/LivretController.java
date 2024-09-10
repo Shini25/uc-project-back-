@@ -1,9 +1,13 @@
 package finance.uc_project.controller.courriers;
 
 import java.util.Base64;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -18,6 +22,17 @@ public class LivretController {
 
     @Autowired
     private LivretService livretService;
+
+    @GetMapping
+    public List<Livret> getAllLivrets() {
+        return livretService.getAllLivrets();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Livret> getLivretById(@PathVariable Long id) {
+        Optional<Livret> livret = livretService.getLivretById(id);
+        return livret.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
 
     @PostMapping("/insertion/personalise")
         public ResponseEntity<Livret> createLivretPersonalise(
@@ -37,4 +52,5 @@ public class LivretController {
         }
     }
 
+    
 }

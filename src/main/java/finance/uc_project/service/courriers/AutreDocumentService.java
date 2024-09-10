@@ -31,8 +31,6 @@ public class AutreDocumentService {
         return autreDocumentRepository.findById(id);
     }
 
-
-        
     public AutreDocument createAutreDocumentPersonalise(String titre, byte[] contenue, String typeDeContenue, String autreDocumentType, String userId) {
         AutreDocument autreDocument = new AutreDocument();
         autreDocument.setTitre(titre);
