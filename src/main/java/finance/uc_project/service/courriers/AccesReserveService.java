@@ -1,6 +1,7 @@
 package finance.uc_project.service.courriers;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,4 +33,9 @@ public class AccesReserveService {
         accesReserve.setUserId(user);
         return accesReserveRepository.save(accesReserve);
     }
+
+    public List<AccesReserve> getAllAccesReserve() {
+        return accesReserveRepository.findAll();
+    }
+
 }

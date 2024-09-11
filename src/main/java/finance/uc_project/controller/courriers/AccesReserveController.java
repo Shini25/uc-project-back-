@@ -1,9 +1,11 @@
 package finance.uc_project.controller.courriers;
 
 import java.util.Base64;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -34,6 +36,12 @@ public class AccesReserveController {
             } catch (IllegalArgumentException e) {
                 return ResponseEntity.badRequest().body(null);
         }
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<AccesReserve>> getAllAccesReserve() {
+        List<AccesReserve> accesReserves = accesReserveService.getAllAccesReserve();
+        return ResponseEntity.ok(accesReserves);
     }
 
 }

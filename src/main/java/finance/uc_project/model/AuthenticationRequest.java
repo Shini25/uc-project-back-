@@ -1,24 +1,24 @@
 package finance.uc_project.model;
 
 public class AuthenticationRequest {
-    private String matricule;
+    private String numero;
     private String password;
 
     // Default constructor for JSON Parsing
     public AuthenticationRequest() {
     }
 
-    public AuthenticationRequest(String matricule, String password) {
-        this.matricule = matricule;
+    public AuthenticationRequest(String numero, String password) {
+        this.numero = numero;
         this.password = password;
     }
 
-    public String getMatricule() {
-        return matricule;
+    public String getNumero() {
+        return numero;
     }
 
-    public void setMatricule(String matricule) {
-        this.matricule = matricule;
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
     public String getPassword() {

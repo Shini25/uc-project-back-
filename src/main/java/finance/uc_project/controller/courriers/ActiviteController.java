@@ -1,9 +1,11 @@
 package finance.uc_project.controller.courriers;
 
 import java.util.Base64;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -19,23 +21,6 @@ public class ActiviteController {
     @Autowired
     private ActiviteService activiteService;
 
-    // @GetMapping
-    // public ResponseEntity<List<Activite>> getAllActivites() {
-    //     List<Activite> activites = activiteService.getAllActivites();
-    //     return ResponseEntity.ok(activites);
-    // }
-
-    // @GetMapping("/{id}")
-    // public ResponseEntity<Activite> getActiviteById(@PathVariable Long id) {
-    //     Optional<Activite> activite = activiteService.getActiviteById(id);
-    //     return activite.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    // }
-
-    // @PostMapping("/insertion")
-    // public ResponseEntity<Activite> createActivite(@RequestBody Activite activite) {
-    //     Activite createdActivite = activiteService.createActivite(activite);
-    //     return new ResponseEntity<>(createdActivite, HttpStatus.CREATED);
-    // }
 
     @PostMapping("/insertion/personalise")
         public ResponseEntity<Activite> createActivitePersonalise(
@@ -54,22 +39,12 @@ public class ActiviteController {
         }
     }
 
-    // @PutMapping("/{id}")
-    // public ResponseEntity<Livret> updateLivret(@PathVariable Long id, @RequestBody Livret pta) {
-    //     if (!livretService.getLivretById(id).isPresent()) {
-    //         return ResponseEntity.notFound().build();
-    //     }
-    //     pta.setId(id);
-    //      updatedLivret = livretService.updateLivret(pta);
-    //     return ResponseEntity.ok(updatedLivret);
-    // }
 
-    // @DeleteMapping("/{id}")
-    // public ResponseEntity<Void> deleteLivret(@PathVariable Long id) {
-    //     if (!ptaService.getLivretById(id).isPresent()) {
-    //         return ResponseEntity.notFound().build();
-    //     }
-    //     ptaService.deleteLivret(id);
-    //     return ResponseEntity.noContent().build();
-    // }
+    @GetMapping("/all")
+    public ResponseEntity<List<Activite>> getAllActivites() {
+        List<Activite> activites = activiteService.getAllActivites();
+        return ResponseEntity.ok(activites);
+    }
+
+
 }
