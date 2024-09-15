@@ -45,7 +45,7 @@ public class infoBaseController {
 
     @PutMapping("/{matricule}")
     public ResponseEntity<infoBase> updateChef(@PathVariable String matricule, @RequestBody infoBase chef) {
-        chef.setMatricule(matricule);
+        chef.setNumero(matricule);
         return ResponseEntity.ok(chefService.updateChef(chef));
     }
 

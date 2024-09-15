@@ -2,7 +2,6 @@ package finance.uc_project.controller.courriers;
 
 import java.util.Base64;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,12 +42,6 @@ public class PtaController {
         }
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Pta> getPtaById(@PathVariable Long id) {
-        Optional<Pta> pta = ptaService.getPtaById(id);
-        return pta.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }
-
     @GetMapping("/all")
     public ResponseEntity<List<Pta>> getAllPta() {
         List<Pta> ptas = ptaService.getAllPta();
@@ -57,9 +49,22 @@ public class PtaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Pta> updatePta(@PathVariable Long id, @RequestBody Pta pta) {
-        Pta updatedPta = ptaService.updatePta(id, pta);
-        return ResponseEntity.ok(updatedPta);
+    public ResponseEntity<Pta> updatePta(@PathVariable Long id, @RequestPart("contenue") String base64Contenue) {
+        try {
+
+            String Base64Contenue = base64Contenue.split(",")[1];
+            byte[] contenueBytes = Base64.getDecoder().decode(Base64Contenue);
+            Pta updatedPta = ptaService.updatePta(id, contenueBytes);
+            return ResponseEntity.ok(updatedPta);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(400).body(null);
+        }
+    }
+
+    @PutMapping("/valider/{id}")
+    public ResponseEntity<Pta> validerPta(@PathVariable Long id) {
+        Pta validerPta = ptaService.validerPta(id);
+        return ResponseEntity.ok(validerPta);
     }
 
 }

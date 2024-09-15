@@ -51,6 +51,4 @@ public class LivretController {
             return ResponseEntity.status(400).body(null);
         }
     }
-
-    
 }

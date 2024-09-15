@@ -11,7 +11,7 @@ import finance.uc_project.model.chefs.infoBase;
 
 @Repository
 public interface infoBaseRepository extends JpaRepository<infoBase, String> {
-    Optional<infoBase> findByMatricule(String matricule);
+    Optional<infoBase> findByNumero(String numero);
     
     List<infoBase> findByTypeDeChef(TypeDeChef typeDeChef);
 }

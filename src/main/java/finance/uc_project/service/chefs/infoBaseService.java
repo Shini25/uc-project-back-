@@ -21,8 +21,8 @@ public class infoBaseService {
         return chefRepository.findAll();
     }
 
-    public Optional<infoBase> getChefById(String matricule) {
-        return chefRepository.findById(matricule);
+    public Optional<infoBase> getChefById(String numero) {
+        return chefRepository.findById(numero);
     }
 
     public infoBase createChef(infoBase chef) {
@@ -33,8 +33,8 @@ public class infoBaseService {
         return chefRepository.save(chef);
     }
 
-    public void deleteChef(String matricule) {
-        chefRepository.deleteById(matricule);
+    public void deleteChef(String numero) {
+        chefRepository.deleteById(numero);
     }
 
     public List<infoBase> getAllChefsOrdered(String direction) {

@@ -23,8 +23,8 @@ import jakarta.persistence.Table;
 public class infoBase {
 
     @Id
-    @Column(name = "matricule", nullable = false)
-    private String matricule;
+    @Column(name = "numero", nullable = false)
+    private String numero;
 
     @Column(name = "nom", nullable = false)
     private String nom;
@@ -79,12 +79,12 @@ public class infoBase {
     }
 
     // Getters and Setters
-    public String getMatricule() {
-        return matricule;
+    public String getNumero() {
+        return numero;
     }
 
-    public void setMatricule(String matricule) {
-        this.matricule = matricule;
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
     public String getNom() {

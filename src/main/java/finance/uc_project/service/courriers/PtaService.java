@@ -36,7 +36,6 @@ public class PtaService {
         return ptaRepository.save(pta);
     }
 
-    //get all
     public List<Pta> getAllPta() {
         return ptaRepository.findAll();
     }
@@ -44,18 +43,19 @@ public class PtaService {
     public Optional<Pta> getPtaById(Long id) {
         return ptaRepository.findById(id);
     }
-
     public Pta createPta(Pta pta) {
         return ptaRepository.save(pta);
     }
     
-    public Pta updatePta(Long id, Pta pta) {
+    public Pta updatePta(Long id, byte[] contenue) {
         Pta existingPta = ptaRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid pta id: " + id));
-        existingPta.setTitre(pta.getTitre());
-        existingPta.setContenue(pta.getContenue());
-        existingPta.setType(pta.getType());
-        existingPta.setTypeContenue(pta.getTypeContenue());
-        existingPta.setUserId(pta.getUser_account());
+        existingPta.setContenue(contenue);
+        return ptaRepository.save(existingPta);
+    }
+
+    public Pta validerPta(Long id) {
+        Pta existingPta = ptaRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid pta id: " + id));
+        existingPta.setValide(true);
         return ptaRepository.save(existingPta);
     }
 
@@ -63,3 +63,4 @@ public class PtaService {
         ptaRepository.deleteById(id);
     }
 }
+  

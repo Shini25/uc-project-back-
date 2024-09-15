@@ -33,7 +33,7 @@ public class ParticipantService {
     public List<String> getParticipantsByReunion(Long reunionId) {
         return infoReunionBaseRepository.findById(reunionId)
                 .map(reunion -> reunion.getParticipants().stream()
-                        .map(participant -> participant.getChef().getMatricule())
+                        .map(participant -> participant.getChef().getNumero())
                         .collect(Collectors.toList()))
                 .orElse(null);
     }

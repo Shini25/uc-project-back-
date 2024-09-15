@@ -32,7 +32,7 @@ public class ResponsableReunionService {
     public List<String> getResponsableByReunion(Long reunionId) {
         return infoReunionBaseRepository.findById(reunionId)
                 .map(reunion -> reunion.getResponsables().stream()
-                        .map(participant -> participant.getChef().getMatricule())
+                        .map(participant -> participant.getChef().getNumero())
                         .collect(Collectors.toList()))
                 .orElse(null);
     }
